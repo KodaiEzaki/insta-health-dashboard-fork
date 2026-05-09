@@ -1,0 +1,79 @@
+name: ダッシュボード更新
+
+on:
+  # 毎朝3:07（JST）= UTC 18:07（前日）、毎日
+  schedule:
+    - cron: '7 18 * * *'
+
+  # 手動実行
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-dashboard:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: リポジトリをチェックアウト
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Node.js をセットアップ
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: 依存関係をインストール
+        run: npm ci
+
+      - name: Playwright ブラウザをインストール
+        run: npx playwright install --with-deps chromium
+
+      - name: データ取得
+        run: npm run fetch-data
+        env:
+          INSTA_SHEETS_SPREADSHEET_ID: ${{ secrets.INSTA_SHEETS_SPREADSHEET_ID }}
+          INSTA_SHEETS_API_KEY: ${{ secrets.INSTA_SHEETS_API_KEY }}
+
+      - name: 健康度計算
+        run: npm run calculate-health
+
+      - name: AI提案生成
+        run: npm run ai-suggestions
+        env:
+          INSTA_GEMINI_API_KEY: ${{ secrets.INSTA_GEMINI_API_KEY }}
+
+      - name: HTMLダッシュボード生成
+        run: npm run generate-dashboard
+
+      - name: スクリーンショット撮影
+        run: npm run take-screenshot
+
+      - name: Surge にデプロイ
+        run: npm run deploy
+        env:
+          INSTA_SURGE_LOGIN: ${{ secrets.INSTA_SURGE_LOGIN }}
+          INSTA_SURGE_TOKEN: ${{ secrets.INSTA_SURGE_TOKEN }}
+          INSTA_SURGE_DOMAIN: ${{ secrets.INSTA_SURGE_DOMAIN }}
+
+      - name: LINE 通知送信
+        run: npm run send-line
+        env:
+          INSTA_SURGE_DOMAIN: ${{ secrets.INSTA_SURGE_DOMAIN }}
+          LINE_CHANNEL_ACCESS_TOKEN: ${{ secrets.LINE_CHANNEL_ACCESS_TOKEN }}
+          LINE_USER_ID: ${{ secrets.LINE_USER_ID }}
+
+      - name: 日次ログ保存
+        run: npm run save-daily-log
+
+      - name: ログをコミット＆プッシュ
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -f data/daily-log.json
+          git diff --cached --quiet || git commit -m "chore: update daily-log [skip ci]"
+          git push

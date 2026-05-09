@@ -1,0 +1,28 @@
+{
+  "name": "insta-health-dashboard",
+  "version": "1.0.0",
+  "description": "米粉インスタ運営 進捗管理ダッシュボード：Google Sheets + Gemini AI + Surge",
+  "type": "module",
+  "scripts": {
+    "fetch-data": "node scripts/fetch-data.js",
+    "calculate-health": "node scripts/calculate-health.js",
+    "ai-suggestions": "node scripts/generate-ai-suggestions.js",
+    "generate-dashboard": "node scripts/generate-dashboard.js",
+    "take-screenshot": "node scripts/take-screenshot.js",
+    "deploy": "node scripts/deploy-to-surge.js",
+    "send-line": "node scripts/send-line.js",
+    "save-daily-log": "node scripts/save-daily-log.js",
+    "send-line-weekly": "node scripts/send-line-weekly.js",
+    "send-line-monthly": "node scripts/send-line-monthly.js",
+    "run-all": "npm run fetch-data && npm run calculate-health && npm run ai-suggestions && npm run generate-dashboard && npm run take-screenshot && npm run deploy && npm run save-daily-log && npm run send-line"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.24.1",
+    "dotenv": "^17.2.3",
+    "js-yaml": "^4.1.0",
+    "playwright": "^1.52.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

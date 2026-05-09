@@ -1,0 +1,33 @@
+name: 月次レポート送信
+
+on:
+  # 毎月1日 朝3:27（JST）= 前月末日 UTC 18:27
+  # 月末28〜31日に実行し、スクリプト側でJST 1日かチェック
+  schedule:
+    - cron: '27 18 28-31 * *'
+
+  # 手動実行
+  workflow_dispatch:
+
+jobs:
+  monthly-report:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: リポジトリをチェックアウト
+        uses: actions/checkout@v4
+
+      - name: Node.js をセットアップ
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: 依存関係をインストール
+        run: npm ci
+
+      - name: 月次レポートをLINE送信
+        run: npm run send-line-monthly
+        env:
+          LINE_CHANNEL_ACCESS_TOKEN: ${{ secrets.LINE_CHANNEL_ACCESS_TOKEN }}
+          INSTA_GEMINI_API_KEY: ${{ secrets.INSTA_GEMINI_API_KEY }}

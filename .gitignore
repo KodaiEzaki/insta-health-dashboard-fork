@@ -1,0 +1,11 @@
+# 環境変数（APIキーを含む。絶対にコミットしないこと）
+.env
+
+# 実行時に生成されるデータファイル
+data/
+!data/daily-log.json
+output/
+dist/
+
+# Node.js
+node_modules/

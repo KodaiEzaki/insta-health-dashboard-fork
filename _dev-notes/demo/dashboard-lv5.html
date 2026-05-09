@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>はるの朝れぽ</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['-apple-system', '"Hiragino Sans"', '"Hiragino Kaku Gothic ProN"', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+</head>
+<body class="bg-stone-100 font-sans text-stone-800 px-4 py-6 sm:px-6 sm:py-8">
+  <div class="max-w-xl mx-auto">
+
+    <header class="bg-gradient-to-r from-amber-100 to-orange-50 rounded-2xl p-4 mb-5 shadow-sm">
+      <div class="flex items-center gap-2 mb-1">
+        <span class="text-2xl">🌸</span>
+        <h1 class="text-2xl sm:text-3xl font-bold tracking-tight text-amber-800">はるの朝れぽ</h1>
+      </div>
+      <p class="text-amber-600 text-sm font-medium mt-1">はるさん、おはよう！今日からまた一歩踏み出そうね🌸</p>
+      <p class="text-stone-400 text-xs mt-1">更新: 2026/05/06 14:50</p>
+    </header>
+
+    <p class="text-xs font-semibold uppercase tracking-widest text-stone-400 mb-3">📣 投稿後フォロー</p>
+    
+      <div class="bg-emerald-50 border-l-4 border-emerald-500 rounded-2xl p-5 shadow hover:shadow-md transition-shadow mb-4">
+        <div class="flex items-center justify-between gap-4">
+          <div class="flex-1">
+            <p class="text-xs text-stone-400 mb-1">最後の投稿から</p>
+            <p class="text-4xl sm:text-5xl font-bold tabular-nums leading-none text-emerald-600">
+              1<span class="text-base font-normal text-stone-400 ml-1">日経過</span>
+            </p>
+            <p class="text-xs text-stone-400 mt-1">最終投稿日: 2026-04-17</p>
+            <div class="mt-3">
+              <div class="flex justify-between text-xs text-stone-400 mb-1">
+                <span>投稿サイクル（週1目標）</span>
+                <span>残り6日</span>
+              </div>
+              <div class="bg-stone-200 rounded-full h-2 overflow-hidden">
+                <div class="bg-emerald-500 rounded-full h-2 transition-all" style="width:14%"></div>
+              </div>
+            </div>
+          </div>
+          <div class="shrink-0 flex flex-col items-center">
+            <img src="character/Lv5.png" alt="" class="w-[72px] h-[72px] object-contain" />
+            <span class="inline-flex items-center gap-1 bg-emerald-100 text-emerald-700 text-xs font-semibold px-3 py-1 rounded-full -mt-2 shadow-sm">
+              <span>✓</span><span>安全</span>
+            </span>
+          </div>
+        </div>
+      </div>
+
+    <p class="text-xs font-semibold uppercase tracking-widest text-stone-400 mb-3">✅ 進捗チェック</p>
+    <div class="grid grid-cols-3 gap-2 mb-6">
+      
+      <div class="bg-emerald-50 border-l-4 border-emerald-500 rounded-2xl p-3 shadow hover:shadow-md transition-shadow">
+        <p class="text-xs text-stone-400 mb-2 leading-tight">📝 ストック</p>
+        <p class="text-2xl font-bold tabular-nums leading-none text-emerald-600">
+          15<span class="text-xs font-normal text-stone-400 ml-0.5">本</span>
+        </p>
+        <span class="mt-2 inline-flex items-center gap-0.5 bg-emerald-100 text-emerald-700 text-[0.65rem] font-semibold px-1.5 py-0.5 rounded-full">
+          <span>✓</span><span>安全</span>
+        </span>
+        <p class="mt-1 text-[0.5rem] text-stone-400 leading-tight">リサーチ〜試作の合計本数</p>
+        <p class="mt-1.5 text-[0.5rem] text-stone-500 leading-tight">🟢6本〜 🟡3〜5本 🔴2本以下</p>
+      </div>
+      <div class="bg-emerald-50 border-l-4 border-emerald-500 rounded-2xl p-3 shadow hover:shadow-md transition-shadow">
+        <p class="text-xs text-stone-400 mb-2 leading-tight">🔄 制作進行</p>
+        <p class="text-2xl font-bold tabular-nums leading-none text-emerald-600">
+          6<span class="text-xs font-normal text-stone-400 ml-0.5">本</span>
+        </p>
+        <span class="mt-2 inline-flex items-center gap-0.5 bg-emerald-100 text-emerald-700 text-[0.65rem] font-semibold px-1.5 py-0.5 rounded-full">
+          <span>✓</span><span>安全</span>
+        </span>
+        <p class="mt-1 text-[0.5rem] text-stone-400 leading-tight">レシピ作成〜試作の本数</p>
+        <p class="mt-1.5 text-[0.5rem] text-stone-500 leading-tight">🟢3本〜 🟡1〜2本 🔴0本</p>
+      </div>
+      <div class="bg-emerald-50 border-l-4 border-emerald-500 rounded-2xl p-3 shadow hover:shadow-md transition-shadow">
+        <p class="text-xs text-stone-400 mb-2 leading-tight">📸 撮影・編集</p>
+        <p class="text-2xl font-bold tabular-nums leading-none text-emerald-600">
+          1<span class="text-xs font-normal text-stone-400 ml-0.5">本</span>
+        </p>
+        <span class="mt-2 inline-flex items-center gap-0.5 bg-emerald-100 text-emerald-700 text-[0.65rem] font-semibold px-1.5 py-0.5 rounded-full">
+          <span>✓</span><span>安全</span>
+        </span>
+        <p class="mt-1 text-[0.5rem] text-stone-400 leading-tight">撮影中〜動画編集中の本数</p>
+        <p class="mt-1.5 text-[0.5rem] text-stone-500 leading-tight">🟢1本以上 🔴0本</p>
+      </div>
+    </div>
+
+    
+    <p class="text-xs font-semibold uppercase tracking-widest text-stone-400 mb-3">🍳 進行中レシピ</p>
+    <div class="bg-white rounded-xl shadow-sm mb-6 overflow-hidden">
+      
+      
+      <div class="px-4 py-3">
+        <p class="text-[0.65rem] font-bold text-stone-400 uppercase tracking-widest mb-2">試作・制作フェーズ</p>
+        <div class="flex flex-wrap gap-2">
+          
+          <span class="inline-flex items-center gap-1.5 bg-amber-50 border border-amber-200 text-amber-700 text-xs px-3 py-1.5 rounded-full">
+            ✏️ タオルケーキ <span class="text-stone-400">レシピ作成中</span>
+          </span>
+          <span class="inline-flex items-center gap-1.5 bg-amber-50 border border-amber-200 text-amber-700 text-xs px-3 py-1.5 rounded-full">
+            ✏️ 米粉アイス(バニラ) <span class="text-stone-400">レシピ作成中</span>
+          </span>
+          <span class="inline-flex items-center gap-1.5 bg-amber-50 border border-amber-200 text-amber-700 text-xs px-3 py-1.5 rounded-full">
+            ✏️ ショコラフレンチトースト <span class="text-stone-400">レシピ作成中</span>
+          </span>
+          <span class="inline-flex items-center gap-1.5 bg-amber-50 border border-amber-200 text-amber-700 text-xs px-3 py-1.5 rounded-full">
+            🧪 ブリュレアイス <span class="text-stone-400">試作中</span>
+          </span>
+          <span class="inline-flex items-center gap-1.5 bg-amber-50 border border-amber-200 text-amber-700 text-xs px-3 py-1.5 rounded-full">
+            🧪 ボウルでシフォンケーキ <span class="text-stone-400">試作中</span>
+          </span>
+          <span class="inline-flex items-center gap-1.5 bg-amber-50 border border-amber-200 text-amber-700 text-xs px-3 py-1.5 rounded-full">
+            🧪 ざくざくキャラメルナッツ <span class="text-stone-400">試作中</span>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <p class="text-xs font-semibold uppercase tracking-widest text-stone-400 mb-3">🤖 AIからのアドバイス</p>
+    <div class="bg-white rounded-xl shadow-sm overflow-hidden mb-6">
+      
+      <div class="flex items-start gap-3 p-4 bg-rose-50 border-b border-white hover:bg-rose-100/60 transition-colors">
+        <span class="text-xl shrink-0">🔥</span>
+        <div>
+          <span class="text-[0.65rem] font-bold bg-rose-100 text-rose-600 px-1.5 py-0.5 rounded">優先度：高</span>
+          <p class="text-sm text-stone-700 mt-1.5 leading-relaxed">試作済みのレシピから1本、まずは撮影準備に入ろう！<br>完璧を目指さず、まずは形にすることが大切。きっと素敵なリールになるよ！💪</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-3 p-4 bg-amber-50 border-b border-white hover:bg-amber-100/60 transition-colors">
+        <span class="text-xl shrink-0">🧭</span>
+        <div>
+          <span class="text-[0.65rem] font-bold bg-amber-100 text-amber-600 px-1.5 py-0.5 rounded">優先度：中</span>
+          <p class="text-sm text-stone-700 mt-1.5 leading-relaxed">撮影・編集のこだわり、ちょっとだけ見直してみよう。<br>完璧より、まずは『投稿』を優先！管理栄養士さんの知識と美味しさは、十分伝わるはずだよ😊</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-3 p-4 bg-emerald-50  hover:bg-emerald-100/60 transition-colors">
+        <span class="text-xl shrink-0">🌱</span>
+        <div>
+          <span class="text-[0.65rem] font-bold bg-emerald-100 text-emerald-600 px-1.5 py-0.5 rounded">優先度：低</span>
+          <p class="text-sm text-stone-700 mt-1.5 leading-relaxed">リサーチ済みのストックから、次撮りやすそうなレシピをいくつか選んでみよう。<br>たくさんのアイディアがあるのは強み！準備を進めることで、心の余裕も生まれるはずだよ🌱</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="text-xs font-semibold uppercase tracking-widest text-stone-400 mb-3">📋 フェーズ別レシピ数</p>
+    <div class="bg-white rounded-xl shadow-sm mb-8 overflow-hidden">
+      
+      <div class="flex items-center gap-3 px-4 min-h-[44px] border-b border-stone-100 hover:bg-amber-50 transition-colors">
+        <span class="text-xs text-stone-500 w-28 shrink-0">リサーチ中</span>
+        <div class="flex-1 bg-stone-100 rounded-full h-2 overflow-hidden">
+          <div class="bg-amber-400 rounded-full h-2" style="width:100%"></div>
+        </div>
+        <span class="text-xs font-bold text-stone-700 w-5 text-right">9</span>
+      </div>
+      <div class="flex items-center gap-3 px-4 min-h-[44px] border-b border-stone-100 hover:bg-amber-50 transition-colors">
+        <span class="text-xs text-stone-500 w-28 shrink-0">レシピ作成中</span>
+        <div class="flex-1 bg-stone-100 rounded-full h-2 overflow-hidden">
+          <div class="bg-amber-400 rounded-full h-2" style="width:33%"></div>
+        </div>
+        <span class="text-xs font-bold text-stone-700 w-5 text-right">3</span>
+      </div>
+      <div class="flex items-center gap-3 px-4 min-h-[44px] border-b border-stone-100 hover:bg-amber-50 transition-colors">
+        <span class="text-xs text-stone-500 w-28 shrink-0">試作中</span>
+        <div class="flex-1 bg-stone-100 rounded-full h-2 overflow-hidden">
+          <div class="bg-amber-400 rounded-full h-2" style="width:33%"></div>
+        </div>
+        <span class="text-xs font-bold text-stone-700 w-5 text-right">3</span>
+      </div>
+      <div class="flex items-center gap-3 px-4 min-h-[44px] border-b border-stone-100 bg-rose-50 transition-colors">
+        <span class="text-xs text-stone-500 w-28 shrink-0">撮影中</span>
+        <div class="flex-1 bg-stone-100 rounded-full h-2 overflow-hidden">
+          <div class="bg-rose-400 rounded-full h-2" style="width:3%"></div>
+        </div>
+        <span class="text-xs font-bold text-rose-500 w-5 text-right">0</span>
+      </div>
+      <div class="flex items-center gap-3 px-4 min-h-[44px] border-b border-stone-100 bg-rose-50 transition-colors">
+        <span class="text-xs text-stone-500 w-28 shrink-0">動画編集中</span>
+        <div class="flex-1 bg-stone-100 rounded-full h-2 overflow-hidden">
+          <div class="bg-rose-400 rounded-full h-2" style="width:3%"></div>
+        </div>
+        <span class="text-xs font-bold text-rose-500 w-5 text-right">0</span>
+      </div>
+      <div class="flex items-center gap-3 px-4 min-h-[44px]  hover:bg-amber-50 transition-colors">
+        <span class="text-xs text-stone-500 w-28 shrink-0">投稿完了</span>
+        <div class="flex-1 bg-stone-100 rounded-full h-2 overflow-hidden">
+          <div class="bg-emerald-500 rounded-full h-2" style="width:11%"></div>
+        </div>
+        <span class="text-xs font-bold text-stone-700 w-5 text-right">1</span>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
