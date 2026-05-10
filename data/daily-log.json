@@ -5,8 +5,8 @@
     "daysSincePublish": 1,
     "downstreamCount": 1,
     "countByPhase": {
-      "リサーチ中": 9,
-      "レシピ作成中": 2,
+      "リサーチ中": 10,
+      "レシピ作成中": 0,
       "試作中": 2,
       "撮影中": 1,
       "動画編集中": 0,
@@ -14,7 +14,7 @@
     },
     "checks": {
       "upstream": "healthy",
-      "midstream": "healthy",
+      "midstream": "warning",
       "downstream": "healthy",
       "postPublish": "healthy"
     }
