@@ -10,16 +10,19 @@ on:
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 jobs:
   update-dashboard:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
       - name: リポジトリをチェックアウト
         uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Node.js をセットアップ
         uses: actions/setup-node@v4
@@ -53,17 +56,22 @@ jobs:
       - name: スクリーンショット撮影
         run: npm run take-screenshot
 
-      - name: Surge にデプロイ
-        run: npm run deploy
-        env:
-          INSTA_SURGE_LOGIN: ${{ secrets.INSTA_SURGE_LOGIN }}
-          INSTA_SURGE_TOKEN: ${{ secrets.INSTA_SURGE_TOKEN }}
-          INSTA_SURGE_DOMAIN: ${{ secrets.INSTA_SURGE_DOMAIN }}
+      - name: GitHub Pages 用 dist を準備
+        run: npm run deploy-pages
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
 
       - name: LINE 通知送信
         run: npm run send-line
         env:
-          INSTA_SURGE_DOMAIN: ${{ secrets.INSTA_SURGE_DOMAIN }}
+          INSTA_SITE_URL: ${{ secrets.INSTA_SITE_URL }}
           LINE_CHANNEL_ACCESS_TOKEN: ${{ secrets.LINE_CHANNEL_ACCESS_TOKEN }}
           LINE_USER_ID: ${{ secrets.LINE_USER_ID }}
 

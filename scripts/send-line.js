@@ -24,9 +24,27 @@ async function sendLineMessage() {
     return;
   }
 
-  const domain = process.env.INSTA_SURGE_DOMAIN;
-  const dashboardUrl = `https://${domain}`;
-  const screenshotUrl = `https://${domain}/screenshot.png`;
+  const siteUrl =
+    process.env.INSTA_SITE_URL ||
+    (process.env.INSTA_SURGE_DOMAIN ? `https://${process.env.INSTA_SURGE_DOMAIN}` : null) ||
+    deriveGitHubPagesUrl();
+
+  if (!siteUrl) {
+    console.error('❌ 公開URLが設定されていません。INSTA_SITE_URL または INSTA_SURGE_DOMAIN を設定してください');
+    process.exit(1);
+  }
+
+  const normalizedSiteUrl = siteUrl.replace(/\/$/, '');
+  const dashboardUrl = normalizedSiteUrl;
+  const screenshotUrl = `${normalizedSiteUrl}/screenshot.png`;
+
+  function deriveGitHubPagesUrl() {
+    const repository = process.env.GITHUB_REPOSITORY;
+    if (!repository) return null;
+    const [owner, repo] = repository.split('/');
+    if (!owner || !repo) return null;
+    return `https://${owner}.github.io/${repo}`;
+  }
 
   // AI提案データから朝のメッセージを取得
   let morningMessage = 'おはようございます ☀️';
@@ -46,7 +64,7 @@ async function sendLineMessage() {
   const messages = [
     {
       type: 'text',
-      text: `🌸 はるの朝れぽ\n\n${morningMessage}\n\n📊 ${dashboardUrl}`,
+      text: `🌸 テストテスト\n\n${morningMessage}\n\n📊 ${dashboardUrl}`,
     },
     {
       type: 'image',

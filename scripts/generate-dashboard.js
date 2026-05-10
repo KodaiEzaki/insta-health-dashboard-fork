@@ -285,7 +285,7 @@ async function generateDashboard() {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>はるの朝れぽ</title>
+  <title>テストテスト</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -305,7 +305,7 @@ async function generateDashboard() {
     <header class="bg-gradient-to-r from-amber-100 to-orange-50 rounded-2xl p-4 mb-5 shadow-sm">
       <div class="flex items-center gap-2 mb-1">
         <span class="text-2xl">🌸</span>
-        <h1 class="text-2xl sm:text-3xl font-bold tracking-tight text-amber-800">はるの朝れぽ</h1>
+        <h1 class="text-2xl sm:text-3xl font-bold tracking-tight text-amber-800">テストテスト</h1>
       </div>
       <p class="text-amber-600 text-sm font-medium mt-1">${morningMessage}</p>
       <p class="text-stone-400 text-xs mt-1">更新: ${formatJST(calculatedAt)}</p>
