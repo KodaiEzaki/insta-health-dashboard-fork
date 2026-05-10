@@ -2,7 +2,7 @@ name: 週次レポート送信
 
 on:
   # 毎週日曜 朝3:27（JST）= UTC 18:27（土曜）
-  schedule:
+  # schedule:
     - cron: '27 18 * * 6'
 
   # 手動実行
