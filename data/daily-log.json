@@ -1,0 +1,22 @@
+[
+  {
+    "date": "2026-05-10",
+    "level": 5,
+    "daysSincePublish": 1,
+    "downstreamCount": 1,
+    "countByPhase": {
+      "リサーチ中": 9,
+      "レシピ作成中": 2,
+      "試作中": 2,
+      "撮影中": 1,
+      "動画編集中": 0,
+      "投稿完了": 1
+    },
+    "checks": {
+      "upstream": "healthy",
+      "midstream": "healthy",
+      "downstream": "healthy",
+      "postPublish": "healthy"
+    }
+  }
+]
