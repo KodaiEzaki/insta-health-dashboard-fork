@@ -2,7 +2,7 @@ name: ダッシュボード更新
 
 on:
   # 毎朝3:07（JST）= UTC 18:07（前日）、毎日
-  schedule:
+  # schedule:
     - cron: '7 18 * * *'
 
   # 手動実行
